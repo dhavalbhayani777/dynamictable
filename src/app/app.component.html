@@ -1,0 +1,52 @@
+<div class="container">
+	<button mat-raised-button color="primary" (click)="openPopup();">Add</button>
+</div>
+<form>
+	<p-table [value]="data">
+		<ng-template pTemplate="header">
+			<tr>
+				<th>action</th>
+				<th>id</th>
+				<th>type</th>
+				<th>currency</th>
+				<th>code</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-data>
+			<tr (paste)="onPaste($event)">
+				<td class="centerIcon">
+					<mat-icon>add_circle_outline</mat-icon>
+				</td>
+				<td>
+					{{data.id}}
+					<!-- <input type="text" placeholder="id" pInputText class="form-control label-name" name="id{{data.id}}" [(ngModel)]="data.id"/> -->
+				</td>
+				<td>
+					{{data.type}}
+					<!-- <select class="fullWidth">
+						<option *ngFor="let item of type">{{item}}</option>
+					</select> -->
+				</td>
+				<td>
+					{{data.currency}}
+					<!-- <select class="fullWidth">
+						<option *ngFor="let item of currency">{{item}}</option>
+					</select> -->
+				</td>
+				<td>
+					{{data.code}}
+					<!-- <select class="fullWidth">
+						<option *ngFor="let item of code">{{item}}</option>
+					</select> -->
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</form>
+
+<ul>
+	<li *ngFor="let car of selectedCars1" style="text-align: left">
+		{{car.id}}
+	</li>
+</ul>
+<!-- <router-outlet></router-outlet> -->
